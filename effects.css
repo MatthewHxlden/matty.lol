@@ -156,34 +156,36 @@ a:hover, button:hover, .tab_switcher:hover {
     height: 20px;
 }
 
-/* Crypto ticker styling - THEME AWARE, SINGLE LINE, EQUAL HEIGHT */
+/* Crypto ticker styling - INDIVIDUAL BOXES WITH LED */
 #crypto-ticker {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    border-top: 1px solid var(--main-color);
-    padding: 4px 12px;
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 2px solid var(--main-color);
+    padding: 8px 12px;
     font-family: 'Courier New', monospace;
     font-size: 14px !important;
     font-weight: normal;
     color: var(--main-color);
     text-shadow: 0 0 3px var(--main-color);
     z-index: 9998;
-    overflow: hidden;
-    height: 20px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    height: 50px;
     box-shadow: 0 0 8px rgba(var(--dropdown-color), 0.2);
 }
 
 #crypto-ticker-content {
     display: flex;
-    gap: 12px;
+    gap: 8px;
     white-space: nowrap;
     animation: scroll-ticker 80s linear infinite;
     min-width: max-content;
     height: 100%;
     align-items: center;
+    padding-right: 50px;
 }
 
 #crypto-ticker-content:hover {
@@ -197,47 +199,59 @@ a:hover, button:hover, .tab_switcher:hover {
 
 .ticker-item {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     align-items: center;
     flex-shrink: 0;
-    background: rgba(30, 30, 30, 0.9);
-    padding: 2px 10px;
-    border: 1px solid rgba(var(--dropdown-color), 0.3);
-    border-radius: 2px;
+    background: rgba(20, 20, 20, 0.95);
+    padding: 6px 12px;
+    border: 1px solid rgba(var(--dropdown-color), 0.5);
+    border-radius: 3px;
+    min-height: 30px;
 }
 
 .led-indicator {
-    width: 8px;
-    height: 8px;
+    width: 10px;
+    height: 10px;
     border-radius: 50%;
     flex-shrink: 0;
     animation: pulse-led 1.5s ease-in-out infinite;
+    box-shadow: 0 0 8px currentColor;
+}
+
+.led-indicator[style*="#00ff00"] {
+    background-color: #00ff00;
+    box-shadow: 0 0 12px #00ff00, 0 0 20px rgba(0, 255, 0, 0.6);
+}
+
+.led-indicator[style*="#ff0000"] {
+    background-color: #ff0000;
+    box-shadow: 0 0 12px #ff0000, 0 0 20px rgba(255, 0, 0, 0.6);
 }
 
 @keyframes pulse-led {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+    50% { opacity: 0.6; }
 }
 
 .ticker-symbol {
     font-weight: bold;
     color: var(--main-color);
     font-size: 14px !important;
-    min-width: 45px;
+    min-width: 50px;
 }
 
 .ticker-price {
     color: var(--main-color);
     font-size: 14px !important;
     font-family: 'Courier New', monospace;
-    min-width: 90px;
+    min-width: 100px;
 }
 
 .ticker-change.positive {
     color: #00ff00;
     font-size: 14px !important;
     font-weight: bold;
-    min-width: 75px;
+    min-width: 80px;
     text-shadow: 0 0 5px #00ff00;
 }
 
@@ -245,7 +259,7 @@ a:hover, button:hover, .tab_switcher:hover {
     color: #ff0000;
     font-size: 14px !important;
     font-weight: bold;
-    min-width: 75px;
+    min-width: 80px;
     text-shadow: 0 0 5px #ff0000;
 }
 

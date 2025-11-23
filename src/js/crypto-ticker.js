@@ -43,16 +43,18 @@ function formatPrice(price) {
 }
 
 function createTickerItem(symbol, price, change) {
-    const changeDir = change >= 0 ? "▲" : "▼";
-    const ledColor = change >= 0 ? "#00ff00" : "#ff0000";
-    const ledGlow = change >= 0 ? "0 0 8px #00ff00" : "0 0 8px #ff0000";
+    const isPositive = change >= 0;
+    const ledColor = isPositive ? '#00ff00' : '#ff0000';
+    const arrow = isPositive ? '▲' : '▼';
+    const changeClass = isPositive ? 'positive' : 'negative';
+    const rgbColor = isPositive ? '0, 255, 0' : '255, 0, 0';
     
     return `
         <div class="ticker-item">
-            <div class="led-indicator" style="background-color: ${ledColor}; box-shadow: ${ledGlow};"></div>
-            <span class="ticker-symbol">${symbol}</span>
-            <span class="ticker-price">${formatPrice(price)}</span>
-            <span class="ticker-change ${change >= 0 ? 'positive' : 'negative'}">${changeDir} ${Math.abs(change).toFixed(2)}%</span>
+            <div class="led-indicator" style="background-color: ${ledColor}; box-shadow: 0 0 12px ${ledColor}, 0 0 20px rgba(${rgbColor}, 0.6);"></div>
+            <div class="ticker-symbol">${symbol}</div>
+            <div class="ticker-price">$${formatPrice(price)}</div>
+            <div class="ticker-change ${changeClass}">${arrow} ${Math.abs(change).toFixed(2)}%</div>
         </div>
     `;
 }
