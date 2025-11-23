@@ -69,13 +69,36 @@ body::before {
     100% { transform: translateY(10px); }
 }
 
-/* Green CRT glow on text */
-#title, header, .ptag1, h1, h2, h3 {
+/* Green CRT glow on text - LARGE SIZES */
+#title {
+    font-size: 24px !important;
+    line-height: 1.4 !important;
     text-shadow: 
-        0 0 5px #00FF00,
-        0 0 10px #00AA00,
-        0 0 15px #008800,
-        0 0 20px rgba(0, 255, 0, 0.5) !important;
+        0 0 8px #00FF00,
+        0 0 16px #00AA00,
+        0 0 24px #008800,
+        0 0 32px rgba(0, 255, 0, 0.6) !important;
+    color: #00FF00 !important;
+    letter-spacing: 2px;
+}
+
+header {
+    font-size: 18px !important;
+    text-shadow: 
+        0 0 8px #00FF00,
+        0 0 16px #00AA00,
+        0 0 24px #008800,
+        0 0 32px rgba(0, 255, 0, 0.6) !important;
+    color: #00FF00 !important;
+}
+
+.ptag1, h1, h2, h3 {
+    font-size: 20px !important;
+    text-shadow: 
+        0 0 8px #00FF00,
+        0 0 16px #00AA00,
+        0 0 24px #008800,
+        0 0 32px rgba(0, 255, 0, 0.6) !important;
     color: #00FF00 !important;
 }
 
@@ -120,30 +143,34 @@ a:hover, button:hover, .tab_switcher:hover {
     color: #00FF00;
 }
 
-/* Crypto ticker styling */
+/* Crypto ticker styling - HORIZONTAL SCROLL */
 #crypto-ticker {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 30, 0, 0.95);
-    border-top: 2px solid #00FF00;
-    padding: 8px 12px;
+    background: rgba(0, 30, 0, 0.98);
+    border-top: 3px solid #00FF00;
+    padding: 12px 20px;
     font-family: 'Courier New', monospace;
-    font-size: 11px;
+    font-size: 16px !important;
+    font-weight: bold;
     color: #00FF00;
-    text-shadow: 0 0 5px #00AA00;
+    text-shadow: 0 0 8px #00AA00, 0 0 15px rgba(0, 255, 0, 0.5);
     z-index: 9998;
-    overflow: hidden;
-    max-height: 30px;
-    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: 50px;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4), inset 0 1px 0 rgba(0, 255, 0, 0.1);
 }
 
 #crypto-ticker-content {
     display: flex;
-    gap: 20px;
-    animation: scroll-ticker 30s linear infinite;
+    gap: 40px;
+    padding: 0 20px;
     white-space: nowrap;
+    animation: scroll-ticker 60s linear infinite;
+    min-width: max-content;
 }
 
 @keyframes scroll-ticker {
@@ -153,44 +180,57 @@ a:hover, button:hover, .tab_switcher:hover {
 
 .ticker-item {
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: center;
+    flex-shrink: 0;
 }
 
 .ticker-symbol {
     font-weight: bold;
     color: #00FF00;
+    font-size: 18px;
+    min-width: 50px;
 }
 
 .ticker-price {
     color: #00FF00;
+    font-size: 16px;
+    font-family: 'Courier New', monospace;
+    min-width: 100px;
 }
 
 .ticker-change.positive {
     color: #00FF00;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 100px;
 }
 
 .ticker-change.negative {
     color: #FF5500;
+    font-size: 16px;
+    font-weight: bold;
+    min-width: 100px;
 }
 
-/* Status bar styling */
+/* Status bar styling - LARGER */
 #status-bar {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 30, 0, 0.95);
-    border-bottom: 2px solid #00FF00;
-    padding: 4px 12px;
+    background: rgba(0, 30, 0, 0.98);
+    border-bottom: 3px solid #00FF00;
+    padding: 8px 20px;
     font-family: 'Courier New', monospace;
-    font-size: 10px;
+    font-size: 14px !important;
+    font-weight: bold;
     color: #00FF00;
-    text-shadow: 0 0 3px #00AA00;
+    text-shadow: 0 0 8px #00AA00, 0 0 15px rgba(0, 255, 0, 0.5);
     z-index: 9997;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 12px rgba(0, 255, 0, 0.3), inset 0 1px 0 rgba(0, 255, 0, 0.1);
 }
 
 /* Adjust main content to account for status bar and ticker */

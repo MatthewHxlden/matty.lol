@@ -87,33 +87,29 @@ async function initTicker() {
     updateStatusBar();
     setInterval(updateStatusBar, 1000);
 
-    // Create ticker
+    // Create ticker container
     const ticker = document.createElement("div");
     ticker.id = "crypto-ticker";
     
     const tickerContent = document.createElement("div");
     tickerContent.id = "crypto-ticker-content";
-    
     ticker.appendChild(tickerContent);
     document.body.appendChild(ticker);
 
-    // Initial fetch
-    const prices = await fetchCryptoPrices();
-    tickerContent.innerHTML = createTickerContent(prices);
+    // Fetch and display initial prices
+    async function updateTicker() {
+        const prices = await fetchCryptoPrices();
+        const content = createTickerContent(prices);
+        
+        // Create two copies for seamless scrolling loop
+        tickerContent.innerHTML = content + content;
+    }
 
-    // Duplicate content for seamless loop
-    const clone = tickerContent.cloneNode(true);
-    ticker.appendChild(clone);
+    // Initial fetch
+    await updateTicker();
 
     // Refresh prices every 30 seconds
-    setInterval(async () => {
-        const newPrices = await fetchCryptoPrices();
-        const content = createTickerContent(newPrices);
-        
-        document.querySelectorAll("#crypto-ticker-content").forEach(el => {
-            el.innerHTML = content;
-        });
-    }, 30000);
+    setInterval(updateTicker, 30000);
 }
 
 // Initialize when DOM is ready
