@@ -170,9 +170,10 @@ a:hover, button:hover, .tab_switcher:hover {
     bottom: 8px;
     left: 0;
     width: 100%;
-    background: transparent;
-    border-top: none;
-    padding: 0 12px;
+    background: transparent !important;
+    border: none !important;
+    border-top: none !important;
+    padding: 0 12px !important;
     font-family: 'Courier New', monospace;
     font-size: 12px !important;
     font-weight: normal;
@@ -181,8 +182,9 @@ a:hover, button:hover, .tab_switcher:hover {
     z-index: 9998;
     overflow-y: hidden;
     overflow-x: auto;
-    height: auto;
-    box-shadow: none;
+    height: auto !important;
+    box-shadow: none !important;
+    margin: 0 !important;
 }
 
 #crypto-ticker-content {
@@ -225,21 +227,21 @@ a:hover, button:hover, .tab_switcher:hover {
 }
 
 .led-indicator {
-    width: 8px;
-    height: 24px;
-    border-radius: 1px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50% !important;
     flex-shrink: 0;
     animation: pulse-led 1.5s ease-in-out infinite;
 }
 
 .led-indicator[style*="#00ff00"] {
-    background-color: #00ff00;
-    box-shadow: 0 0 10px #00ff00, inset 0 0 8px rgba(0, 255, 0, 0.7);
+    background-color: #00ff00 !important;
+    box-shadow: 0 0 10px #00ff00, inset 0 0 8px rgba(0, 255, 0, 0.7) !important;
 }
 
 .led-indicator[style*="#ff0000"] {
-    background-color: #ff0000;
-    box-shadow: 0 0 10px #ff0000, inset 0 0 8px rgba(255, 0, 0, 0.7);
+    background-color: #ff0000 !important;
+    box-shadow: 0 0 10px #ff0000, inset 0 0 8px rgba(255, 0, 0, 0.7) !important;
 }
 
 @keyframes pulse-led {

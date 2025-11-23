@@ -36,13 +36,15 @@ document.addEventListener('DOMContentLoaded', function() {
 // remove 'rgb' and brackets from --bg-value so the color can be used in combination with individual opacity-values (rgba)
 document.documentElement.style.setProperty('--bg-color', getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim().replace(/rgb\(|\)/g, ''));
 
-// Only change tab based on existing hash
-if (location.hash) {
+// Only change tab if hash exists and is valid
+if (location.hash && document.getElementById(location.hash.slice(1))) {
     changeTab(location.hash.slice(1));
 }
 
 window.addEventListener('hashchange', function() {
-    changeTab(location.hash.slice(1));
+    if (location.hash && document.getElementById(location.hash.slice(1))) {
+        changeTab(location.hash.slice(1));
+    }
 })
 
 function changeTab(tab) {
