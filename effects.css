@@ -71,35 +71,44 @@ body::before {
 
 /* Green CRT glow on text - LARGE SIZES */
 #title {
-    font-size: 24px !important;
-    line-height: 1.4 !important;
+    font-size: 32px !important;
+    line-height: 1.6 !important;
     text-shadow: 
-        0 0 8px #00FF00,
-        0 0 16px #00AA00,
-        0 0 24px #008800,
-        0 0 32px rgba(0, 255, 0, 0.6) !important;
+        0 0 10px #00FF00,
+        0 0 20px #00AA00,
+        0 0 30px #008800,
+        0 0 40px rgba(0, 255, 0, 0.7) !important;
     color: #00FF00 !important;
-    letter-spacing: 2px;
+    letter-spacing: 3px;
+    font-weight: bold;
 }
 
 header {
-    font-size: 18px !important;
+    font-size: 22px !important;
     text-shadow: 
-        0 0 8px #00FF00,
-        0 0 16px #00AA00,
-        0 0 24px #008800,
-        0 0 32px rgba(0, 255, 0, 0.6) !important;
+        0 0 10px #00FF00,
+        0 0 20px #00AA00,
+        0 0 30px #008800,
+        0 0 40px rgba(0, 255, 0, 0.7) !important;
     color: #00FF00 !important;
+    font-weight: bold;
 }
 
 .ptag1, h1, h2, h3 {
-    font-size: 20px !important;
+    font-size: 24px !important;
     text-shadow: 
-        0 0 8px #00FF00,
-        0 0 16px #00AA00,
-        0 0 24px #008800,
-        0 0 32px rgba(0, 255, 0, 0.6) !important;
+        0 0 10px #00FF00,
+        0 0 20px #00AA00,
+        0 0 30px #008800,
+        0 0 40px rgba(0, 255, 0, 0.7) !important;
     color: #00FF00 !important;
+    font-weight: bold;
+}
+
+p, li {
+    font-size: 16px !important;
+    color: #00FF00 !important;
+    text-shadow: 0 0 5px #00AA00 !important;
 }
 
 /* Text flicker animation */
@@ -143,74 +152,89 @@ a:hover, button:hover, .tab_switcher:hover {
     color: #00FF00;
 }
 
-/* Crypto ticker styling - HORIZONTAL SCROLL */
+/* Crypto ticker styling - PROPER BOX WITH SCROLLING */
 #crypto-ticker {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 30, 0, 0.98);
-    border-top: 3px solid #00FF00;
-    padding: 12px 20px;
+    background: rgba(0, 30, 0, 0.99);
+    border-top: 4px solid #00FF00;
+    border-left: 4px solid #00FF00;
+    border-right: 4px solid #00FF00;
+    padding: 16px 24px;
     font-family: 'Courier New', monospace;
-    font-size: 16px !important;
-    font-weight: bold;
     color: #00FF00;
-    text-shadow: 0 0 8px #00AA00, 0 0 15px rgba(0, 255, 0, 0.5);
+    text-shadow: 0 0 10px #00AA00, 0 0 20px rgba(0, 255, 0, 0.6);
     z-index: 9998;
-    overflow-x: auto;
-    overflow-y: hidden;
-    max-height: 50px;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4), inset 0 1px 0 rgba(0, 255, 0, 0.1);
+    overflow: hidden;
+    min-height: 60px;
+    max-height: 80px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 2px 5px rgba(0, 255, 0, 0.1);
 }
 
 #crypto-ticker-content {
     display: flex;
-    gap: 40px;
-    padding: 0 20px;
+    gap: 50px;
+    padding-right: 50px;
     white-space: nowrap;
-    animation: scroll-ticker 60s linear infinite;
+    animation: scroll-ticker 80s linear infinite;
     min-width: max-content;
+    height: 100%;
+    align-items: center;
+}
+
+#crypto-ticker-content:hover {
+    animation-play-state: paused;
 }
 
 @keyframes scroll-ticker {
-    0% { transform: translateX(100%); }
+    0% { transform: translateX(100vw); }
     100% { transform: translateX(-100%); }
 }
 
 .ticker-item {
     display: flex;
-    gap: 15px;
+    gap: 20px;
     align-items: center;
     flex-shrink: 0;
+    background: rgba(0, 50, 0, 0.6);
+    padding: 8px 16px;
+    border: 2px solid #00FF00;
+    border-radius: 4px;
 }
 
 .ticker-symbol {
     font-weight: bold;
     color: #00FF00;
-    font-size: 18px;
-    min-width: 50px;
+    font-size: 20px !important;
+    min-width: 60px;
+    text-shadow: 0 0 8px #00AA00;
 }
 
 .ticker-price {
     color: #00FF00;
-    font-size: 16px;
+    font-size: 20px !important;
     font-family: 'Courier New', monospace;
-    min-width: 100px;
+    min-width: 120px;
+    text-shadow: 0 0 8px #00AA00;
+    font-weight: bold;
 }
 
 .ticker-change.positive {
     color: #00FF00;
-    font-size: 16px;
+    font-size: 18px !important;
     font-weight: bold;
-    min-width: 100px;
+    min-width: 120px;
+    text-shadow: 0 0 8px #00AA00;
 }
 
 .ticker-change.negative {
     color: #FF5500;
-    font-size: 16px;
+    font-size: 18px !important;
     font-weight: bold;
-    min-width: 100px;
+    min-width: 120px;
+    text-shadow: 0 0 8px #FF6600;
 }
 
 /* Status bar styling - LARGER */
@@ -219,18 +243,20 @@ a:hover, button:hover, .tab_switcher:hover {
     top: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 30, 0, 0.98);
-    border-bottom: 3px solid #00FF00;
-    padding: 8px 20px;
+    background: rgba(0, 30, 0, 0.99);
+    border-bottom: 4px solid #00FF00;
+    border-left: 4px solid #00FF00;
+    border-right: 4px solid #00FF00;
+    padding: 12px 24px;
     font-family: 'Courier New', monospace;
-    font-size: 14px !important;
+    font-size: 18px !important;
     font-weight: bold;
     color: #00FF00;
-    text-shadow: 0 0 8px #00AA00, 0 0 15px rgba(0, 255, 0, 0.5);
+    text-shadow: 0 0 10px #00AA00, 0 0 20px rgba(0, 255, 0, 0.6);
     z-index: 9997;
     display: flex;
     justify-content: space-between;
-    box-shadow: 0 0 12px rgba(0, 255, 0, 0.3), inset 0 1px 0 rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4), inset 0 2px 5px rgba(0, 255, 0, 0.1);
 }
 
 /* Adjust main content to account for status bar and ticker */

@@ -18,14 +18,17 @@ async function fetchCryptoPrices() {
     try {
         const ids = CRYPTOS.map(c => c.id).join(",");
         const response = await fetch(
-            `${COINGECKO_API}/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`
+            `${COINGECKO_API}/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`,
+            { cache: 'no-cache' }
         );
         
-        if (!response.ok) throw new Error("Failed to fetch crypto prices");
+        if (!response.ok) throw new Error(`API error: ${response.status}`);
         
-        return await response.json();
+        const data = await response.json();
+        console.log("Crypto data fetched:", data);
+        return data;
     } catch (error) {
-        console.error("Crypto ticker error:", error);
+        console.error("Crypto ticker fetch error:", error);
         return null;
     }
 }
@@ -36,33 +39,38 @@ function formatPrice(price) {
     return `$${(price / 1000).toFixed(1)}K`;
 }
 
+function createTickerItem(symbol, price, change) {
+    const changeDir = change >= 0 ? "▲" : "▼";
+    const changeClass = change >= 0 ? "positive" : "negative";
+    
+    return `
+        <div class="ticker-item">
+            <span class="ticker-symbol">${symbol}</span>
+            <span class="ticker-price">${formatPrice(price)}</span>
+            <span class="ticker-change ${changeClass}">${changeDir} ${Math.abs(change).toFixed(2)}%</span>
+        </div>
+    `;
+}
+
 function createTickerContent(prices) {
     if (!prices) {
-        return `<span style="color: #FF5500;">● NO DATA</span>`;
+        console.warn("No prices available");
+        return `<div class="ticker-item"><span style="color: #FF5500; font-size: 18px;">● LOADING PRICES...</span></div>`;
     }
 
-    const items = CRYPTOS
-        .map(crypto => {
+    let html = '';
+    CRYPTOS.forEach(crypto => {
+        try {
             const data = prices[crypto.id];
-            if (!data) return null;
+            if (data && data.usd) {
+                html += createTickerItem(crypto.symbol, data.usd, data.usd_24h_change);
+            }
+        } catch (e) {
+            console.error(`Error processing ${crypto.id}:`, e);
+        }
+    });
 
-            const price = data.usd;
-            const change = data.usd_24h_change;
-            const changeDir = change >= 0 ? "▲" : "▼";
-            const changeClass = change >= 0 ? "positive" : "negative";
-
-            return `
-                <div class="ticker-item">
-                    <span class="ticker-symbol">${crypto.symbol}</span>
-                    <span class="ticker-price">${formatPrice(price)}</span>
-                    <span class="ticker-change ${changeClass}">${changeDir} ${Math.abs(change).toFixed(2)}%</span>
-                </div>
-            `;
-        })
-        .filter(item => item !== null)
-        .join("");
-
-    return items;
+    return html || `<div class="ticker-item"><span style="color: #FF5500; font-size: 18px;">● NO DATA AVAILABLE</span></div>`;
 }
 
 function updateStatusBar() {
@@ -73,13 +81,15 @@ function updateStatusBar() {
     const statusBar = document.getElementById("status-bar");
     if (statusBar) {
         statusBar.innerHTML = `
-            <span>matty.lol [ Chart: Terminal 24/7 ] ${timeStr}</span>
-            <span>${dateStr}</span>
+            <span>matty.lol [ Terminal 24/7 Live Ticker ]</span>
+            <span>${timeStr} | ${dateStr}</span>
         `;
     }
 }
 
 async function initTicker() {
+    console.log("Initializing ticker...");
+    
     // Create status bar
     const statusBar = document.createElement("div");
     statusBar.id = "status-bar";
@@ -87,22 +97,29 @@ async function initTicker() {
     updateStatusBar();
     setInterval(updateStatusBar, 1000);
 
-    // Create ticker container
-    const ticker = document.createElement("div");
-    ticker.id = "crypto-ticker";
+    // Create ticker container with wrapper for overflow
+    const tickerWrapper = document.createElement("div");
+    tickerWrapper.id = "crypto-ticker";
     
     const tickerContent = document.createElement("div");
     tickerContent.id = "crypto-ticker-content";
-    ticker.appendChild(tickerContent);
-    document.body.appendChild(ticker);
+    
+    tickerWrapper.appendChild(tickerContent);
+    document.body.appendChild(tickerWrapper);
 
-    // Fetch and display initial prices
+    // Initial fetch with retry logic
     async function updateTicker() {
+        console.log("Fetching crypto prices...");
         const prices = await fetchCryptoPrices();
-        const content = createTickerContent(prices);
         
-        // Create two copies for seamless scrolling loop
-        tickerContent.innerHTML = content + content;
+        if (prices) {
+            const content = createTickerContent(prices);
+            // Repeat content 3x for smooth scrolling loop
+            tickerContent.innerHTML = content + content + content;
+            console.log("Ticker updated successfully");
+        } else {
+            tickerContent.innerHTML = `<div class="ticker-item"><span style="color: #FF5500; font-size: 18px;">● API UNAVAILABLE - RETRYING...</span></div>`;
+        }
     }
 
     // Initial fetch
@@ -110,6 +127,9 @@ async function initTicker() {
 
     // Refresh prices every 30 seconds
     setInterval(updateTicker, 30000);
+    
+    // Also retry on fetch error immediately once
+    setTimeout(updateTicker, 5000);
 }
 
 // Initialize when DOM is ready
@@ -118,3 +138,4 @@ if (document.readyState === "loading") {
 } else {
     initTicker();
 }
+
