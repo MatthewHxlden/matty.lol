@@ -53,24 +53,36 @@ function createTickerItem(symbol, price, change) {
 }
 
 function createTickerContent(prices) {
-    if (!prices) {
-        console.warn("No prices available");
-        return `<div class="ticker-item"><span style="color: #FF5500; font-size: 18px;">● LOADING PRICES...</span></div>`;
+    if (!prices || Object.keys(prices).length === 0) {
+        console.warn("No prices available", prices);
+        return `<div class="ticker-item"><span style="font-size: 13px;">● LOADING...</span></div>`;
     }
 
     let html = '';
+    let count = 0;
+    
     CRYPTOS.forEach(crypto => {
         try {
             const data = prices[crypto.id];
-            if (data && data.usd) {
+            if (data && data.usd !== undefined && data.usd_24h_change !== undefined) {
                 html += createTickerItem(crypto.symbol, data.usd, data.usd_24h_change);
+                count++;
+                console.log(`✓ ${crypto.symbol}: $${data.usd} (${data.usd_24h_change}%)`);
+            } else {
+                console.warn(`✗ Missing data for ${crypto.id}:`, data);
             }
         } catch (e) {
             console.error(`Error processing ${crypto.id}:`, e);
         }
     });
 
-    return html || `<div class="ticker-item"><span style="color: #FF5500; font-size: 18px;">● NO DATA AVAILABLE</span></div>`;
+    if (count === 0) {
+        console.error("No valid crypto data found in response");
+        return `<div class="ticker-item"><span style="font-size: 13px;">● NO DATA</span></div>`;
+    }
+
+    console.log(`Successfully loaded ${count} cryptos`);
+    return html;
 }
 
 function updateStatusBar() {
