@@ -154,9 +154,17 @@ a:hover, button:hover, .tab_switcher:hover {
     align-items: center;
     box-shadow: 0 0 8px rgba(var(--dropdown-color), 0.2);
     height: 20px;
+    overflow: hidden;
+    box-sizing: border-box;
 }
 
-/* Crypto ticker styling - INDIVIDUAL BOXES WITH LED */
+#status-bar > div:last-child {
+    flex-shrink: 0;
+    text-align: right;
+    padding-right: 20px;
+}
+
+/* Crypto ticker styling - RECTANGLE BOXES WITH LED ON LEFT */
 #crypto-ticker {
     position: fixed;
     bottom: 0;
@@ -173,13 +181,13 @@ a:hover, button:hover, .tab_switcher:hover {
     z-index: 9998;
     overflow-y: hidden;
     overflow-x: auto;
-    height: 50px;
+    height: 55px;
     box-shadow: 0 0 8px rgba(var(--dropdown-color), 0.2);
 }
 
 #crypto-ticker-content {
     display: flex;
-    gap: 8px;
+    gap: 10px;
     white-space: nowrap;
     animation: scroll-ticker 80s linear infinite;
     min-width: max-content;
@@ -199,38 +207,44 @@ a:hover, button:hover, .tab_switcher:hover {
 
 .ticker-item {
     display: flex;
-    gap: 10px;
+    gap: 12px;
     align-items: center;
     flex-shrink: 0;
-    background: rgba(20, 20, 20, 0.95);
-    padding: 6px 12px;
-    border: 1px solid rgba(var(--dropdown-color), 0.5);
-    border-radius: 3px;
-    min-height: 30px;
+    background: linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(30, 30, 30, 0.95));
+    padding: 8px 14px 8px 8px;
+    border: 1px solid rgba(var(--dropdown-color), 0.6);
+    border-radius: 4px;
+    min-height: 38px;
+    box-shadow: 0 0 10px rgba(var(--dropdown-color), 0.15);
+    transition: all 0.2s ease;
+}
+
+.ticker-item:hover {
+    box-shadow: 0 0 15px rgba(var(--dropdown-color), 0.3);
+    border-color: rgba(var(--dropdown-color), 0.8);
 }
 
 .led-indicator {
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
+    width: 12px;
+    height: 38px;
+    border-radius: 2px;
     flex-shrink: 0;
     animation: pulse-led 1.5s ease-in-out infinite;
-    box-shadow: 0 0 8px currentColor;
 }
 
 .led-indicator[style*="#00ff00"] {
     background-color: #00ff00;
-    box-shadow: 0 0 12px #00ff00, 0 0 20px rgba(0, 255, 0, 0.6);
+    box-shadow: 0 0 15px #00ff00, inset 0 0 10px rgba(0, 255, 0, 0.8);
 }
 
 .led-indicator[style*="#ff0000"] {
     background-color: #ff0000;
-    box-shadow: 0 0 12px #ff0000, 0 0 20px rgba(255, 0, 0, 0.6);
+    box-shadow: 0 0 15px #ff0000, inset 0 0 10px rgba(255, 0, 0, 0.8);
 }
 
 @keyframes pulse-led {
     0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
+    50% { opacity: 0.7; }
 }
 
 .ticker-symbol {
@@ -238,6 +252,7 @@ a:hover, button:hover, .tab_switcher:hover {
     color: var(--main-color);
     font-size: 14px !important;
     min-width: 50px;
+    text-shadow: 0 0 4px var(--main-color);
 }
 
 .ticker-price {
@@ -245,6 +260,7 @@ a:hover, button:hover, .tab_switcher:hover {
     font-size: 14px !important;
     font-family: 'Courier New', monospace;
     min-width: 100px;
+    text-shadow: 0 0 4px var(--main-color);
 }
 
 .ticker-change.positive {
@@ -252,7 +268,7 @@ a:hover, button:hover, .tab_switcher:hover {
     font-size: 14px !important;
     font-weight: bold;
     min-width: 80px;
-    text-shadow: 0 0 5px #00ff00;
+    text-shadow: 0 0 8px #00ff00;
 }
 
 .ticker-change.negative {
@@ -260,7 +276,7 @@ a:hover, button:hover, .tab_switcher:hover {
     font-size: 14px !important;
     font-weight: bold;
     min-width: 80px;
-    text-shadow: 0 0 5px #ff0000;
+    text-shadow: 0 0 8px #ff0000;
 }
 
 /* Adjust main content to account for status bar and ticker */

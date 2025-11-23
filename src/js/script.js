@@ -29,24 +29,21 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     */
     
-    // COMMENTED: SO IF I DONT LIKE IT I CAN REMOVE IT
-    // ADD: SMALL DELAY TO ENSURE ELEMENTS ARE LOADED BEFORE SCROLLING
-    setTimeout(function() {
-        const currentHash = location.hash || default_hash;
-        const targetElement = document.getElementById(currentHash.slice(1));
-        
-        if (targetElement) {
-            targetElement.scrollIntoView();
-        }
-    }, 100);
-    // END OF THE COMMENT: SMALL DELAY TO ENSURE ELEMENTS ARE LOADED BEFORE SCROLLING
+    // Scroll to top to show ASCII art header
+    window.scrollTo(0, 0);
 });
 
 // remove 'rgb' and brackets from --bg-value so the color can be used in combination with individual opacity-values (rgba)
 document.documentElement.style.setProperty('--bg-color', getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim().replace(/rgb\(|\)/g, ''));
 
-location = location.hash||default_hash
-changeTab(location.hash.slice(1));
+// Only set hash if it doesn't exist, don't scroll to #home by default
+const currentHash = location.hash || '';
+if (currentHash) {
+    changeTab(currentHash.slice(1));
+} else {
+    // Start at top without hash routing
+    changeTab('home');
+}
 
 window.addEventListener('hashchange', function() {
     changeTab(location.hash.slice(1));

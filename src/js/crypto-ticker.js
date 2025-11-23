@@ -12,6 +12,8 @@ const CRYPTOS = [
     { id: "ethereum", symbol: "ETH", name: "Ethereum" },
     { id: "solana", symbol: "SOL", name: "Solana" },
     { id: "cardano", symbol: "ADA", name: "Cardano" },
+    { id: "venetian", symbol: "VVV", name: "Venice" },
+    { id: "diem", symbol: "DIEM", name: "Diem" },
 ];
 
 async function fetchCryptoPrices() {
@@ -37,9 +39,9 @@ async function fetchCryptoPrices() {
 }
 
 function formatPrice(price) {
-    if (price < 1) return `$${price.toFixed(4)}`;
-    if (price < 1000) return `$${price.toFixed(2)}`;
-    return `$${(price / 1000).toFixed(1)}K`;
+    if (price < 1) return price.toFixed(4);
+    if (price < 1000) return price.toFixed(2);
+    return `${(price / 1000).toFixed(1)}K`;
 }
 
 function createTickerItem(symbol, price, change) {
