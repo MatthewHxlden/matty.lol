@@ -1,0 +1,50 @@
+backend:
+  name: github
+  repo: MatthewHxlden/matty.lol
+  branch: master
+  auth_endpoint: api/auth
+
+media_folder: "src/media/uploads"
+public_folder: "/src/media/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "articles"
+    create: true
+    slug: "article{{number}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Content", name: "body", widget: "markdown"}
+      - {label: "Author", name: "author", widget: "string", default: "Matt Holden"}
+
+  - name: "pages"
+    label: "Pages"
+    files:
+      - file: "index.html"
+        label: "About / Home"
+        name: "about"
+        fields:
+          - {label: "About Section Text", name: "about_text", widget: "text"}
+          
+      - file: "privacy.html"
+        label: "Privacy Policy"
+        name: "privacy"
+        fields:
+          - {label: "Privacy Content", name: "privacy_content", widget: "markdown"}
+
+  - name: "status"
+    label: "Status Updates"
+    file: "status/statuses.json"
+    format: "json"
+    fields:
+      - name: statuses
+        label: Status Updates
+        widget: list
+        fields:
+          - {label: "Emoji", name: "emoji", widget: "string"}
+          - {label: "Message", name: "message", widget: "text"}
+          - {label: "Date/Time", name: "datetime", widget: "datetime"}
+          - {label: "Image URL (optional)", name: "image", widget: "string", required: false}
+          - {label: "Video URL (optional)", name: "video", widget: "string", required: false}

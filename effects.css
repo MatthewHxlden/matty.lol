@@ -38,3 +38,201 @@ i {
 .current-status h3{
     text-shadow: 0 0 5px var(--main-color);
 }
+
+/*--------------------------------------------------------------
+# RETRO TERMINAL EFFECTS
+# Green CRT aesthetic with scanlines, glow, and flicker
+--------------------------------------------------------------*/
+
+/* Scanlines overlay - entire page */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: repeating-linear-gradient(
+        0deg,
+        rgba(0, 0, 0, 0.12),
+        rgba(0, 0, 0, 0.12) 1px,
+        transparent 1px,
+        transparent 2px
+    );
+    pointer-events: none;
+    z-index: 9999;
+    animation: scanlines-drift 8s linear infinite;
+}
+
+@keyframes scanlines-drift {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+}
+
+/* Green CRT glow on text */
+#title, header, .ptag1, h1, h2, h3 {
+    text-shadow: 
+        0 0 5px #00FF00,
+        0 0 10px #00AA00,
+        0 0 15px #008800,
+        0 0 20px rgba(0, 255, 0, 0.5) !important;
+    color: #00FF00 !important;
+}
+
+/* Text flicker animation */
+@keyframes flicker {
+    0%, 100% { opacity: 1; }
+    14% { opacity: 1; }
+    15% { opacity: 0.95; }
+    49% { opacity: 1; }
+    50% { opacity: 0.98; }
+    99% { opacity: 1; }
+}
+
+header, #title {
+    animation: flicker 0.15s infinite;
+}
+
+/* Blinking cursor effect on title */
+#title::after {
+    content: "█";
+    animation: blink 1s infinite;
+    margin-left: 2px;
+    color: #00FF00;
+}
+
+@keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+}
+
+/* CRT phosphor glow for nav/interactive elements */
+a, button, .tab_switcher {
+    text-shadow: 0 0 3px #00FF00;
+    transition: all 0.1s;
+}
+
+a:hover, button:hover, .tab_switcher:hover {
+    text-shadow: 
+        0 0 5px #00FF00,
+        0 0 10px #00AA00,
+        0 0 15px rgba(0, 255, 0, 0.8);
+    color: #00FF00;
+}
+
+/* Crypto ticker styling */
+#crypto-ticker {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 30, 0, 0.95);
+    border-top: 2px solid #00FF00;
+    padding: 8px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #00FF00;
+    text-shadow: 0 0 5px #00AA00;
+    z-index: 9998;
+    overflow: hidden;
+    max-height: 30px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.3);
+}
+
+#crypto-ticker-content {
+    display: flex;
+    gap: 20px;
+    animation: scroll-ticker 30s linear infinite;
+    white-space: nowrap;
+}
+
+@keyframes scroll-ticker {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+.ticker-item {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.ticker-symbol {
+    font-weight: bold;
+    color: #00FF00;
+}
+
+.ticker-price {
+    color: #00FF00;
+}
+
+.ticker-change.positive {
+    color: #00FF00;
+}
+
+.ticker-change.negative {
+    color: #FF5500;
+}
+
+/* Status bar styling */
+#status-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 30, 0, 0.95);
+    border-bottom: 2px solid #00FF00;
+    padding: 4px 12px;
+    font-family: 'Courier New', monospace;
+    font-size: 10px;
+    color: #00FF00;
+    text-shadow: 0 0 3px #00AA00;
+    z-index: 9997;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 8px rgba(0, 255, 0, 0.2);
+}
+
+/* Adjust main content to account for status bar and ticker */
+html {
+    padding-top: 20px;
+    padding-bottom: 35px;
+}
+
+/* Terminal-style focus state */
+:focus {
+    outline: 1px solid #00FF00;
+    outline-offset: 2px;
+}
+
+/* Add glow to inputs */
+input, textarea, select {
+    background: rgba(0, 30, 0, 0.8);
+    border: 1px solid #00FF00;
+    color: #00FF00;
+    text-shadow: 0 0 3px #00AA00;
+}
+
+input::placeholder, textarea::placeholder {
+    color: #008800;
+}
+
+/* VT220 style borders */
+.grid_row_box_dotted {
+    border: 1px solid #00FF00;
+    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+}
+
+/* Reduce fade animation intensity to preserve retro feel */
+.fade-in {
+    opacity: 0;
+}
+
+.fade-in.visible {
+    animation: fade-in-retro 0.5s ease-in forwards;
+}
+
+@keyframes fade-in-retro {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
