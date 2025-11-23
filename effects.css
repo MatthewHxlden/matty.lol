@@ -144,7 +144,7 @@ a:hover, button:hover, .tab_switcher:hover {
     border-bottom: 1px solid var(--main-color);
     padding: 4px 12px;
     font-family: 'Courier New', monospace;
-    font-size: 11px !important;
+    font-size: 14px !important;
     font-weight: normal;
     color: var(--main-color);
     text-shadow: 0 0 3px var(--main-color);
@@ -156,7 +156,7 @@ a:hover, button:hover, .tab_switcher:hover {
     height: 20px;
 }
 
-/* Crypto ticker styling - THEME AWARE, SINGLE LINE */
+/* Crypto ticker styling - THEME AWARE, SINGLE LINE, EQUAL HEIGHT */
 #crypto-ticker {
     position: fixed;
     bottom: 0;
@@ -166,7 +166,7 @@ a:hover, button:hover, .tab_switcher:hover {
     border-top: 1px solid var(--main-color);
     padding: 4px 12px;
     font-family: 'Courier New', monospace;
-    font-size: 11px !important;
+    font-size: 14px !important;
     font-weight: normal;
     color: var(--main-color);
     text-shadow: 0 0 3px var(--main-color);
@@ -178,9 +178,9 @@ a:hover, button:hover, .tab_switcher:hover {
 
 #crypto-ticker-content {
     display: flex;
-    gap: 25px;
+    gap: 12px;
     white-space: nowrap;
-    animation: scroll-ticker 60s linear infinite;
+    animation: scroll-ticker 80s linear infinite;
     min-width: max-content;
     height: 100%;
     align-items: center;
@@ -200,34 +200,53 @@ a:hover, button:hover, .tab_switcher:hover {
     gap: 8px;
     align-items: center;
     flex-shrink: 0;
+    background: rgba(30, 30, 30, 0.9);
+    padding: 2px 10px;
+    border: 1px solid rgba(var(--dropdown-color), 0.3);
+    border-radius: 2px;
+}
+
+.led-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+    animation: pulse-led 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-led {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
 }
 
 .ticker-symbol {
     font-weight: bold;
     color: var(--main-color);
-    font-size: 11px !important;
-    min-width: 40px;
+    font-size: 14px !important;
+    min-width: 45px;
 }
 
 .ticker-price {
     color: var(--main-color);
-    font-size: 11px !important;
+    font-size: 14px !important;
     font-family: 'Courier New', monospace;
-    min-width: 80px;
+    min-width: 90px;
 }
 
 .ticker-change.positive {
-    color: var(--main-color);
-    font-size: 11px !important;
+    color: #00ff00;
+    font-size: 14px !important;
     font-weight: bold;
-    min-width: 70px;
+    min-width: 75px;
+    text-shadow: 0 0 5px #00ff00;
 }
 
 .ticker-change.negative {
-    color: var(--warning-color);
-    font-size: 11px !important;
+    color: #ff0000;
+    font-size: 14px !important;
     font-weight: bold;
-    min-width: 70px;
+    min-width: 75px;
+    text-shadow: 0 0 5px #ff0000;
 }
 
 /* Adjust main content to account for status bar and ticker */

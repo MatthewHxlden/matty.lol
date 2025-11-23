@@ -17,18 +17,21 @@ const CRYPTOS = [
 async function fetchCryptoPrices() {
     try {
         const ids = CRYPTOS.map(c => c.id).join(",");
-        const response = await fetch(
-            `${COINGECKO_API}/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`,
-            { cache: 'no-cache' }
-        );
+        const url = `${COINGECKO_API}/simple/price?ids=${ids}&vs_currencies=usd&include_24hr_change=true`;
+        console.log("Fetching from:", url);
+        
+        const response = await fetch(url, { 
+            mode: 'cors',
+            cache: 'no-cache'
+        });
         
         if (!response.ok) throw new Error(`API error: ${response.status}`);
         
         const data = await response.json();
-        console.log("Crypto data fetched:", data);
+        console.log("✓ API Response received:", data);
         return data;
     } catch (error) {
-        console.error("Crypto ticker fetch error:", error);
+        console.error("❌ Crypto ticker fetch error:", error);
         return null;
     }
 }
@@ -41,13 +44,15 @@ function formatPrice(price) {
 
 function createTickerItem(symbol, price, change) {
     const changeDir = change >= 0 ? "▲" : "▼";
-    const changeClass = change >= 0 ? "positive" : "negative";
+    const ledColor = change >= 0 ? "#00ff00" : "#ff0000";
+    const ledGlow = change >= 0 ? "0 0 8px #00ff00" : "0 0 8px #ff0000";
     
     return `
         <div class="ticker-item">
+            <div class="led-indicator" style="background-color: ${ledColor}; box-shadow: ${ledGlow};"></div>
             <span class="ticker-symbol">${symbol}</span>
             <span class="ticker-price">${formatPrice(price)}</span>
-            <span class="ticker-change ${changeClass}">${changeDir} ${Math.abs(change).toFixed(2)}%</span>
+            <span class="ticker-change ${change >= 0 ? 'positive' : 'negative'}">${changeDir} ${Math.abs(change).toFixed(2)}%</span>
         </div>
     `;
 }
