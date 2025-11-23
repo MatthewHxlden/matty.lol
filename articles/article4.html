@@ -7,17 +7,17 @@
 
 	<meta name="theme-color" content="#72B6FF">
     <meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
-	<meta name="keywords" content="fr0st-iwnl, frost, fr0st, frostiwnl, kiyokosmacros, frostiwnldev, frost github, winconfigs, win-configs, win configs">
-	<meta name="author" content="fr0st">
+	<meta name="keywords" content="Matt Holden, matty.lol, example">
+	<meta name="author" content="Matt Holden">
 	<meta name="robots" content="index, follow">
 	<meta name="revisit-after" content="7 days">
 
     <!-- Open Graph (for social sharing) -->
 	<meta property="og:title" content="">
     <meta property="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
-    <meta property="og:image" content="https://fr0st.xyz/src/media/blog-thumbnails/winconfigs.png">
-    <meta property="og:url" content="https://fr0st.xyz">
-    <meta property="og:site_name" content="fr0st.xyz">
+	<meta property="og:image" content="https://matty.lol/src/media/blog-thumbnails/example.jpg">
+	<meta property="og:url" content="https://matty.lol">
+	<meta property="og:site_name" content="matty.lol">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card -->
@@ -27,7 +27,7 @@
     <meta name="twitter:image" content="https://fr0st.xyz/src/media/blog-thumbnails/winconfigs.png">
 
 	<!-----TITLE------>
-	<title>fr0st - WinConfigs: Simplifying Windows Setup</title>
+	<title>Example Article — Matt Holden</title>
 
 	<!-----SCRIPT-JS------>
 	<script src="/src/js/components/base.js" type="module" defer></script>
@@ -94,11 +94,7 @@
 	<div id="canvas">
 		<header>
 			<pre id="title">
-    ____       ____         __ 
-   / __/_____ / __ \ _____ / /_
-  / /_ / ___// / / // ___// __/
- / __// /   / /_/ /(__  )/ /_  
-/_/  /_/    \____//____/ \__/  
+  J A E
 			</pre>
             <div>
 			<p class="welcome"></p>
@@ -172,41 +168,9 @@
 			<br>
 			<br>
             <p class="article-date">Published on: February 5, 2025</p>
-            <div class="article-content">
-                <p>One day, I was thinking, what if I create my own automation tool/script that simplifies Windows setup with tweaks, package managers, and custom repositories? I decided to give it a try because I already knew <b>batch</b> scripting.</p>
-                <p>The script I created is primarily written in <b>batch</b>, and while it was exciting, the process wasn't easy. I had to set up several virtual machines to test all of the tweaks and processes on Windows 10 and 11. It was a bit frustrating, but I stuck with it, and the result is something I'm really proud of.
-                </p>
-				<h2>#1 Why I Recommend WinConfigs</h2>
-				<p>First of all, it's incredibly user-friendly. If you've ever tried setting up a new system or tweaking your Windows setup, you know how much of a hassle it can be. With WinConfigs, you get to see all of the tweaks and installations in real time, and it's so easy to follow. I even made a <a href="https://winconfigs.netlify.app/" target="_blank">website</a> for the tool, which is also designed to be user-friendly. If you want to see what the tweaks do, you can check out the photos in the site's <a href="https://winconfigs.netlify.app/docs" target="_blank">docs</a> to make the setup process easier.</p>
-                <p>WinConfigs also helps remove bloat from your system, making it run faster and more efficiently. It removes unnecessary apps and tweaks settings for better performance. Plus, you can also manage software easily with custom repositories and package managers. It even comes with a tool called <a href="https://github.com/ChrisTitusTech/winutil" target="_blank">WinUtil</a>, which lets you apply additional tweaks and optimizations. It also adds personalization features, allowing you to install and manage <b>custom cursors</b> for a more personalized experience. I really recommend it because it makes what would normally be a long and boring process much quicker and easier.</p>
-                <p>The tool comes with a simple command that you can run in PowerShell to install it on your desktop. You can see it below. However, the command might be blocked by <b>Windows Defender</b>, so if you run into any errors, you can either open an <a href="https://github.com/fr0st-iwnl/WinConfigs/issues" target="_blank">issue</a> for help or <a href="https://winconfigs.netlify.app/" target="_blank">install it manually</a>.</p>
-                <div class="blog-code-block">
-					<div class="code-header">
-						<div class="code-title">
-							<i class="fa-solid fa-code"></i>
-							Code
-						</div>
-						<button class="copy-btn" onclick="copyCode(this)">
-							<i class="fa-solid fa-copy"></i>
-							Copy
-						</button>
-					</div>
-					<div class="code-content">
-						<!-- Change language to whatever u want it will auto-detect it automatically -->
-						<pre><code class="language-powershell">iwr "https://fr0st.xyz/winconfigs" | iex</code></pre>
-					</div>
-				</div>
-                <h2>#2 It Supports Multiple Versions of Windows</h2>
-				<p>One of the biggest reasons I'm proud of WinConfigs is that it works on both Windows 10 and 11. I spent a lot of time making sure the script was compatible across both versions, and I tested everything on virtual machines to make sure there were no issues. It was a challenge, but seeing it work smoothly on both made it all worth it.</p>
-				<h2>#3 Custom Repositories and Package Managers</h2>
-                <p>WinConfigs isn't just about system tweaks. It also makes installing software easier with package managers like <b>Scoop</b> and <b>Custom Repositories</b>. Instead of setting up each app manually, WinConfigs handles it for you. You can choose where to install custom repositories, like on your <b>Desktop</b> or in <b>Documents</b> etc. If you want to customize your package setup, just add your apps to <a href="https://github.com/fr0st-iwnl/WinConfigs/blob/master/Configuration/scoop-packages/packages-list.txt" target="_blank">Configuration\scoop-packages\packages-list.txt</a>. The same goes for custom repositories. You can manage them in <a href="https://github.com/fr0st-iwnl/WinConfigs/blob/master/Configuration/custom-repos/repos-list.txt" target="_blank">Configuration\custom-repos\repos-list.txt</a>. If you have a useful app or tool, you can submit a <a href="https://github.com/fr0st-iwnl/WinConfigs/pulls" target="_blank">pull request</a> to add it.</p>
-				
-                <!---<div class="article-image-container">
-                <img class src="https://i.postimg.cc/HLVr48dK/final2.png" class="article-image" alt="Description of Image">
-                </div>--->
-                <h2>＠ Final Thoughts</h2>
-                <p>If you're tired of setting up Windows manually or want to make your PC run better with less effort, WinConfigs is a great choice. It automates installs, tweaks your system, and helps manage software all in one simple tool.</p>
-                <p>Check out the <a href="https://winconfigs.netlify.app/" target="_blank">Website</a> or <a href="https://github.com/fr0st-iwnl/WinConfigs" target="_blank">GitHub</a> for more details, and try it out if you're interested. If you like it, consider giving it a ⭐ on GitHub, it really helps me out!</p>
+			<div class="article-content">
+				<p>This is a placeholder article. Replace this text with your own article content.</p>
+				<p>Author: Matt Holden</p>
                 <div class="article-footer">
 					<p class="lastupdated">＃ Last updated on: <b>February 12, 2025</b></p>
 					<div class="button-container">

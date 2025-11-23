@@ -1,9 +1,8 @@
 
-# ❄️ \\\ fr0st's - Webpage
-Github-Repository of my personal webpage. Including news, projects, picture grid, about and contact pages.
-Made using Vanilla HTML/CSS and JavaScript.
+# Matt Holden — matty.lol
+This repository is a personal webpage template for Matt Holden (matty.lol). It contains example pages, a terminal-inspired design, and placeholder blog posts you can edit.
 
-Featuring a design inspired by old vintage terminals!
+Made with plain HTML, CSS and JavaScript. Customize the content in the `/articles`, `/src`, and root HTML files.
 
 ## Screenshots
 
@@ -14,8 +13,8 @@ Featuring a design inspired by old vintage terminals!
       <td>Mobile</td>
     </tr>
     <tr>
-      <td><img src="https://raw.githubusercontent.com/fr0st-iwnl/assets/main/thumbnails/fr0st.png" alt="Desktop"/></td>
-      <td><img src="https://raw.githubusercontent.com/fr0st-iwnl/assets/main/thumbnails/fr0st-mobile.png" alt="Mobile"/></td>
+      <td>Desktop screenshot placeholder</td>
+      <td>Mobile screenshot placeholder</td>
     </tr>
   </table>
 </div>
@@ -23,9 +22,12 @@ Featuring a design inspired by old vintage terminals!
 
 ## Roadmap / TODOs
 
-- [ ] Remake blogs to use markdown -  *This will take some time because I’m not sure if I want to do it yet. Right now, I’m working with HTML because it feels easier.*
+- [ ] Replace placeholder content with your real content (articles and images).
 
 
 ## Credits
 
-- richardapps-web: [web-page](https://github.com/Richard-Apps/richardapps-web) 
+## Credits
+
+- Template inspired by various terminal-style web templates (credit preserved in original files)
+

@@ -7,17 +7,17 @@
 
 	<meta name="theme-color" content="#72B6FF">
     <meta name="description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
-	<meta name="keywords" content="fr0st-iwnl, frost, fr0st, frostiwnl, kiyokosmacros, frostiwnldev, frost github, tailwind, css, tailwindcss">
-	<meta name="author" content="fr0st">
+	<meta name="keywords" content="Matt Holden, matty.lol, example">
+	<meta name="author" content="Matt Holden">
 	<meta name="robots" content="index, follow">
 	<meta name="revisit-after" content="7 days">
 
     <!-- Open Graph (for social sharing) -->
 	<meta property="og:title" content="">
     <meta property="og:description" content="Explore Frost's personal webpage to find projects, pictures, contact information, and more! Featuring a terminal-inspired design with stunning effects.">
-    <meta property="og:image" content="https://fr0st.xyz/src/media/blog-thumbnails/tailwind2.png">
-    <meta property="og:url" content="https://fr0st.xyz">
-    <meta property="og:site_name" content="fr0st.xyz">
+	<meta property="og:image" content="https://matty.lol/src/media/blog-thumbnails/example.jpg">
+	<meta property="og:url" content="https://matty.lol">
+	<meta property="og:site_name" content="matty.lol">
     <meta property="og:type" content="website">
 
     <!-- Twitter Card -->
@@ -27,7 +27,7 @@
     <meta name="twitter:image" content="https://fr0st.xyz/src/media/blog-thumbnails/tailwind2.png">
 
 	<!-----TITLE------>
-	<title>fr0st - Why Tailwind CSS Isn't for Me</title>
+	<title>Example Article — Matt Holden</title>
 
 	<!-----SCRIPT-JS------>
 	<script src="/src/js/components/base.js" type="module" defer></script>
@@ -38,7 +38,7 @@
 	<link rel="icon" type="image/png" href="/src/media/favicons/favicon-ocean.png" id="favicon">
 	<link rel="preload" as="font" href="src/fonts/terminus-webfont.woff2" type="font/woff2" crossorigin="anonymous">
 	<link rel="stylesheet" href="/articles/articles-styles.css">
-	<link rel="alternate" type="application/rss+xml" title="fr0st&#39;s Webpage RSS" href="https://fr0st.xyz/rss.xml">
+	<link rel="alternate" type="application/rss+xml" title="matty.lol Webpage RSS" href="https://matty.lol/rss.xml">
 
 	<!---FONT AWESOME------->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -95,11 +95,7 @@
 	<div id="canvas">
 		<header>
 			<pre id="title">
-    ____       ____         __ 
-   / __/_____ / __ \ _____ / /_
-  / /_ / ___// / / // ___// __/
- / __// /   / /_/ /(__  )/ /_  
-/_/  /_/    \____//____/ \__/  
+  J A E
 			</pre>
             <div>
 			<p class="welcome"></p>
@@ -173,51 +169,9 @@
 			<br>
 			<br>
             <p class="article-date">Published on: November 6, 2024</p>
-            <div class="article-content">
-                <p>Tailwind's creators are clearly talented, but it's just not for me. I tried using it, but it felt too complicated. I find plain CSS way simpler and easier to work with.</p>
-                <p>Honestly, I have some real concerns about Tailwind, and what frustrates me is when I bring them up, some people just call me an idiot.
-                As someone with a lot of experience in web development, that doesn't feel right. I may not be the best, but I love the web and I value simplicity over complicated frameworks and all of this stuff.
-                </p>
-				<h2>#1 You Have to Learn a Different Way to Write CSS</h2>
-				<p>Like Bootstrap, Tailwind uses short and awkward class names. This means you'll need to learn its specific syntax before you can use it easily. When you first start, it can feel slow, and you'll find yourself constantly looking up which classes to use. So, the promise of <b>"fast development"</b> doesn't really kick in until you get familiar with it and honestly, that's harder than just using regular CSS.</p>
-                <h2>#2 Tailwind makes HTML look ugly and Difficult to Read.</h2>
-				<p>A lot of people don't like Tailwind because it makes HTML harder to read. I agree with that point because, if you care about clean and readable code, it can make things harder to follow.</p>
-				<h3>Here's an example of Tailwind CSS code :</h3>
-
-				<div class="blog-code-block">
-                    <div class="code-header">
-                        <div class="code-title">
-                            <i class="fa-solid fa-code"></i>
-                            Code
-                        </div>
-                        <button class="copy-btn" onclick="copyCode(this)">
-                            <i class="fa-solid fa-copy"></i>
-                            Copy
-                        </button>
-                    </div>
-                    <div class="code-content">
-                        <pre><code class="language-html">&lt;div class="<span class="class-name">flex items-center justify-between p-4 bg-gray-200 rounded-lg shadow-lg"&gt;
-&lt;h1 class="<span class="class-name">text-lg font-bold text-blue-600"&gt;Hi!&lt;/h1&gt;
-&lt;button class="<span class="class-name">bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"&gt;Click Me&lt;/button&gt;
-&lt;p class="<span class="class-name">text-sm text-gray-600 mt-2"&gt;This is a simple description.&lt;/p&gt;
-&lt;/div&gt;
-</code></pre>
-                    </div>
-				</div>
-				  <p>If you think this code doesn't look that bad, I suggest you check out <a href="https://www.aleksandrhovhannisyan.com/blog/why-i-dont-like-tailwind-css/#its-difficult-to-read" target="_blank">Aleksandr Hovhannisyan's</a> blog post too!</p>
-                
-                <p>I know some of you are probably saying, <b>"Just use @apply to keep your HTML clean!"</b> And yes, that's a possible solution.
-				In fact, that's what I've done.</p>
-				<h2>#3 @apply is not a standard solution and has some issues.</h2>
-                <p>Some Tailwind fans don't agree with me, so let me explain it simply:</p>
-				<ul>
-					<li>Using <b>@apply p-4</b> in a CSS file only works if you have Tailwind set up in your project. If you remove Tailwind, that CSS won't work, and your site will break.</li>
-					<br>
-					<li><b>Tailwind-specific CSS</b> is non-standard and doesn't work well with other frameworks or tools. Once you start with Tailwind, you're stuck with it.</li>
-					<br>
-					<li>Also, when you write <b>@apply</b> everywhere in your CSS, you're not really learning CSS. You're writing Tailwind-specific code. For example, writing <b>@apply grid</b> isn't the same as learning to use <b>display: grid;</b> in plain CSS.</li>
-				</ul>
-                <h2>＠ Final Thoughts</h2>
+			<div class="article-content">
+				<p>This is a placeholder article. Replace this text with your own article content.</p>
+				<p>Author: Matt Holden</p>
                 <p>If you like Tailwind, go ahead and use it! But please don't try to convince me it's the future of web design. It works for some, but it's not the solution for everyone. Everyone has their own preferences, and that's okay. Just remember, there are other ways to write clean and maintainable CSS too.</p>
                 <div class="article-footer">
 					<p>＃ Last updated on: <b>November 11, 2025</b></p>

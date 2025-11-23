@@ -364,14 +364,14 @@ function createBirthdayPopup(age) {
         <div class="birthday-popup-overlay">
             <div class="birthday-popup-content">
                 <div class="birthday-popup-header">
-                    <h2>🎉 It's fr0st's Birthday! 🎉</h2>
+                    <h2>🎉 It's Matt Holden's Birthday! 🎉</h2>
                     <button class="birthday-close-btn" onclick="closeBirthdayPopup()">×</button>
                 </div>
                 <div class="birthday-popup-body">
-                    <p class="birthday-age">fr0st is now <span class="age-highlight">${age}</span> years old!</p>
+                    <p class="birthday-age">Matt Holden is now <span class="age-highlight">${age}</span> years old!</p>
                     <p class="birthday-message">Want to send a birthday message?</p>
                     <div class="birthday-buttons">
-                        <a href="mailto:fr0st.xyz@tuta.io?subject=Happy Birthday!" class="birthday-btn email-btn">
+                        <a href="mailto:matt@matty.lol?subject=Happy Birthday!" class="birthday-btn email-btn">
                             <i class="fa-solid fa-envelope"></i>
                             Send Email
                         </a>
@@ -444,7 +444,7 @@ function copyDiscord() {
     isDiscordButtonLocked = true;
     discordCopyCount = 0;
     
-    navigator.clipboard.writeText('fr0st.xyz').then(() => {
+    navigator.clipboard.writeText('matty.lol').then(() => {
         const originalText = btn.innerHTML;
         btn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
         btn.classList.add('copied');
