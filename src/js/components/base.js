@@ -72,9 +72,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
 if ('theme' in localStorage) {
     changeTheme(localStorage.getItem('theme'));
-} // PUT DEFAULT THEME HERE // else {
-//     changeTheme('ocean'); // Setting 'ocean' as the default theme
-// }
+} else {
+    changeTheme('ocean'); // Setting 'ocean' as the default theme
+}
 
 function changeTheme(theme) {
     localStorage.setItem('theme', theme);
