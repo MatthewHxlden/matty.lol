@@ -12,7 +12,7 @@ const CRYPTOS = [
     { id: "ethereum", symbol: "ETH", name: "Ethereum" },
     { id: "solana", symbol: "SOL", name: "Solana" },
     { id: "cardano", symbol: "ADA", name: "Cardano" },
-    { id: "venetian", symbol: "VVV", name: "Venice" },
+    { id: "venice-token", symbol: "VVV", name: "Venice" },
     { id: "diem", symbol: "DIEM", name: "Diem" },
 ];
 

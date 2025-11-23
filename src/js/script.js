@@ -36,13 +36,9 @@ document.addEventListener('DOMContentLoaded', function() {
 // remove 'rgb' and brackets from --bg-value so the color can be used in combination with individual opacity-values (rgba)
 document.documentElement.style.setProperty('--bg-color', getComputedStyle(document.documentElement).getPropertyValue('--bg-color').trim().replace(/rgb\(|\)/g, ''));
 
-// Only set hash if it doesn't exist, don't scroll to #home by default
-const currentHash = location.hash || '';
-if (currentHash) {
-    changeTab(currentHash.slice(1));
-} else {
-    // Start at top without hash routing
-    changeTab('home');
+// Only change tab based on existing hash
+if (location.hash) {
+    changeTab(location.hash.slice(1));
 }
 
 window.addEventListener('hashchange', function() {
