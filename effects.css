@@ -41,7 +41,7 @@ i {
 
 /*--------------------------------------------------------------
 # RETRO TERMINAL EFFECTS
-# Green CRT aesthetic with scanlines, glow, and flicker
+# Scanlines, glow, flicker with theme-aware colors
 --------------------------------------------------------------*/
 
 /* Scanlines overlay - entire page */
@@ -69,46 +69,28 @@ body::before {
     100% { transform: translateY(10px); }
 }
 
-/* Green CRT glow on text - LARGE SIZES */
+/* Text effects - use theme color */
 #title {
-    font-size: 32px !important;
-    line-height: 1.6 !important;
+    font-size: 18px !important;
     text-shadow: 
-        0 0 10px #00FF00,
-        0 0 20px #00AA00,
-        0 0 30px #008800,
-        0 0 40px rgba(0, 255, 0, 0.7) !important;
-    color: #00FF00 !important;
-    letter-spacing: 3px;
+        0 0 5px var(--main-color),
+        0 0 10px var(--main-color),
+        0 0 15px var(--main-color),
+        0 0 20px rgba(var(--dropdown-color), 0.5) !important;
+    color: var(--main-color) !important;
+    letter-spacing: 2px;
     font-weight: bold;
 }
 
 header {
-    font-size: 22px !important;
-    text-shadow: 
-        0 0 10px #00FF00,
-        0 0 20px #00AA00,
-        0 0 30px #008800,
-        0 0 40px rgba(0, 255, 0, 0.7) !important;
-    color: #00FF00 !important;
-    font-weight: bold;
-}
-
-.ptag1, h1, h2, h3 {
-    font-size: 24px !important;
-    text-shadow: 
-        0 0 10px #00FF00,
-        0 0 20px #00AA00,
-        0 0 30px #008800,
-        0 0 40px rgba(0, 255, 0, 0.7) !important;
-    color: #00FF00 !important;
-    font-weight: bold;
-}
-
-p, li {
     font-size: 16px !important;
-    color: #00FF00 !important;
-    text-shadow: 0 0 5px #00AA00 !important;
+    text-shadow: 
+        0 0 5px var(--main-color),
+        0 0 10px var(--main-color),
+        0 0 15px var(--main-color),
+        0 0 20px rgba(var(--dropdown-color), 0.5) !important;
+    color: var(--main-color) !important;
+    font-weight: bold;
 }
 
 /* Text flicker animation */
@@ -130,7 +112,7 @@ header, #title {
     content: "█";
     animation: blink 1s infinite;
     margin-left: 2px;
-    color: #00FF00;
+    color: var(--main-color);
 }
 
 @keyframes blink {
@@ -140,48 +122,65 @@ header, #title {
 
 /* CRT phosphor glow for nav/interactive elements */
 a, button, .tab_switcher {
-    text-shadow: 0 0 3px #00FF00;
+    text-shadow: 0 0 3px var(--main-color);
     transition: all 0.1s;
 }
 
 a:hover, button:hover, .tab_switcher:hover {
     text-shadow: 
-        0 0 5px #00FF00,
-        0 0 10px #00AA00,
-        0 0 15px rgba(0, 255, 0, 0.8);
-    color: #00FF00;
+        0 0 5px var(--main-color),
+        0 0 10px var(--main-color),
+        0 0 15px rgba(var(--dropdown-color), 0.8);
+    color: var(--main-color);
 }
 
-/* Crypto ticker styling - PROPER BOX WITH SCROLLING */
+/* Status bar styling - THEME AWARE */
+#status-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    border-bottom: 2px solid var(--main-color);
+    padding: 8px 16px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px !important;
+    font-weight: bold;
+    color: var(--main-color);
+    text-shadow: 0 0 5px var(--main-color);
+    z-index: 9997;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 0 10px rgba(var(--dropdown-color), 0.3);
+}
+
+/* Crypto ticker styling - THEME AWARE, SINGLE TICKER */
 #crypto-ticker {
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
-    background: rgba(0, 30, 0, 0.99);
-    border-top: 4px solid #00FF00;
-    border-left: 4px solid #00FF00;
-    border-right: 4px solid #00FF00;
-    padding: 16px 24px;
+    background: rgba(0, 0, 0, 0.9);
+    border-top: 2px solid var(--main-color);
+    padding: 10px 16px;
     font-family: 'Courier New', monospace;
-    color: #00FF00;
-    text-shadow: 0 0 10px #00AA00, 0 0 20px rgba(0, 255, 0, 0.6);
+    font-size: 13px !important;
+    font-weight: bold;
+    color: var(--main-color);
+    text-shadow: 0 0 5px var(--main-color);
     z-index: 9998;
     overflow: hidden;
-    min-height: 60px;
-    max-height: 80px;
-    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5), inset 0 2px 5px rgba(0, 255, 0, 0.1);
+    min-height: 45px;
+    max-height: 55px;
+    box-shadow: 0 0 10px rgba(var(--dropdown-color), 0.3);
 }
 
 #crypto-ticker-content {
     display: flex;
-    gap: 50px;
-    padding-right: 50px;
+    gap: 30px;
     white-space: nowrap;
-    animation: scroll-ticker 80s linear infinite;
+    animation: scroll-ticker 60s linear infinite;
     min-width: max-content;
-    height: 100%;
-    align-items: center;
 }
 
 #crypto-ticker-content:hover {
@@ -195,98 +194,68 @@ a:hover, button:hover, .tab_switcher:hover {
 
 .ticker-item {
     display: flex;
-    gap: 20px;
+    gap: 12px;
     align-items: center;
     flex-shrink: 0;
-    background: rgba(0, 50, 0, 0.6);
-    padding: 8px 16px;
-    border: 2px solid #00FF00;
-    border-radius: 4px;
 }
 
 .ticker-symbol {
     font-weight: bold;
-    color: #00FF00;
-    font-size: 20px !important;
-    min-width: 60px;
-    text-shadow: 0 0 8px #00AA00;
+    color: var(--main-color);
+    font-size: 13px !important;
+    min-width: 50px;
 }
 
 .ticker-price {
-    color: #00FF00;
-    font-size: 20px !important;
+    color: var(--main-color);
+    font-size: 13px !important;
     font-family: 'Courier New', monospace;
-    min-width: 120px;
-    text-shadow: 0 0 8px #00AA00;
-    font-weight: bold;
+    min-width: 100px;
 }
 
 .ticker-change.positive {
-    color: #00FF00;
-    font-size: 18px !important;
+    color: var(--main-color);
+    font-size: 13px !important;
     font-weight: bold;
-    min-width: 120px;
-    text-shadow: 0 0 8px #00AA00;
+    min-width: 90px;
 }
 
 .ticker-change.negative {
-    color: #FF5500;
-    font-size: 18px !important;
+    color: var(--warning-color);
+    font-size: 13px !important;
     font-weight: bold;
-    min-width: 120px;
-    text-shadow: 0 0 8px #FF6600;
-}
-
-/* Status bar styling - LARGER */
-#status-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: rgba(0, 30, 0, 0.99);
-    border-bottom: 4px solid #00FF00;
-    border-left: 4px solid #00FF00;
-    border-right: 4px solid #00FF00;
-    padding: 12px 24px;
-    font-family: 'Courier New', monospace;
-    font-size: 18px !important;
-    font-weight: bold;
-    color: #00FF00;
-    text-shadow: 0 0 10px #00AA00, 0 0 20px rgba(0, 255, 0, 0.6);
-    z-index: 9997;
-    display: flex;
-    justify-content: space-between;
-    box-shadow: 0 0 15px rgba(0, 255, 0, 0.4), inset 0 2px 5px rgba(0, 255, 0, 0.1);
+    min-width: 90px;
 }
 
 /* Adjust main content to account for status bar and ticker */
 html {
-    padding-top: 20px;
-    padding-bottom: 35px;
+    padding-top: 35px;
+    padding-bottom: 60px;
 }
 
 /* Terminal-style focus state */
 :focus {
-    outline: 1px solid #00FF00;
+    outline: 1px solid var(--main-color);
     outline-offset: 2px;
 }
 
 /* Add glow to inputs */
 input, textarea, select {
-    background: rgba(0, 30, 0, 0.8);
-    border: 1px solid #00FF00;
-    color: #00FF00;
-    text-shadow: 0 0 3px #00AA00;
+    background: rgba(0, 0, 0, 0.8);
+    border: 1px solid var(--main-color);
+    color: var(--main-color);
+    text-shadow: 0 0 3px var(--main-color);
 }
 
 input::placeholder, textarea::placeholder {
-    color: #008800;
+    color: var(--main-color);
+    opacity: 0.5;
 }
 
 /* VT220 style borders */
 .grid_row_box_dotted {
-    border: 1px solid #00FF00;
-    box-shadow: 0 0 5px rgba(0, 255, 0, 0.2);
+    border: 1px solid var(--main-color);
+    box-shadow: 0 0 5px rgba(var(--dropdown-color), 0.2);
 }
 
 /* Reduce fade animation intensity to preserve retro feel */

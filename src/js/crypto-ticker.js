@@ -90,6 +90,12 @@ function updateStatusBar() {
 async function initTicker() {
     console.log("Initializing ticker...");
     
+    // Check if already initialized (prevent duplicates)
+    if (document.getElementById("status-bar")) {
+        console.log("Ticker already initialized, skipping...");
+        return;
+    }
+    
     // Create status bar
     const statusBar = document.createElement("div");
     statusBar.id = "status-bar";
@@ -118,7 +124,7 @@ async function initTicker() {
             tickerContent.innerHTML = content + content + content;
             console.log("Ticker updated successfully");
         } else {
-            tickerContent.innerHTML = `<div class="ticker-item"><span style="color: #FF5500; font-size: 18px;">● API UNAVAILABLE - RETRYING...</span></div>`;
+            tickerContent.innerHTML = `<div class="ticker-item"><span style="color: #FF6666; font-size: 13px;">● API UNAVAILABLE - RETRYING...</span></div>`;
         }
     }
 
