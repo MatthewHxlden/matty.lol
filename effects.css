@@ -164,27 +164,25 @@ a:hover, button:hover, .tab_switcher:hover {
     padding-right: 20px;
 }
 
-/* Crypto ticker styling - NO BACKGROUND, JUST BUTTONS */
+/* Crypto ticker - NO CONTAINER, JUST FLOATING BUTTONS */
 #crypto-ticker {
     position: fixed;
     bottom: 8px;
-    left: 0;
-    width: 100%;
-    background: transparent !important;
+    left: 12px;
+    right: 12px;
+    width: auto;
+    background: none !important;
     border: none !important;
-    border-top: none !important;
-    padding: 0 12px !important;
+    padding: 0 !important;
     font-family: 'Courier New', monospace;
     font-size: 12px !important;
-    font-weight: normal;
     color: var(--main-color);
-    text-shadow: 0 0 3px var(--main-color);
     z-index: 9998;
-    overflow-y: hidden;
-    overflow-x: auto;
+    overflow: visible;
     height: auto !important;
     box-shadow: none !important;
     margin: 0 !important;
+    pointer-events: none;
 }
 
 #crypto-ticker-content {
@@ -193,9 +191,10 @@ a:hover, button:hover, .tab_switcher:hover {
     white-space: nowrap;
     animation: scroll-ticker 100s linear infinite;
     min-width: max-content;
-    height: 100%;
+    height: auto;
     align-items: center;
-    padding-right: 50px;
+    padding: 0 !important;
+    pointer-events: auto;
 }
 
 #crypto-ticker-content:hover {
@@ -209,39 +208,41 @@ a:hover, button:hover, .tab_switcher:hover {
 
 .ticker-item {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     align-items: center;
     flex-shrink: 0;
-    background: linear-gradient(135deg, rgba(20, 20, 20, 0.9), rgba(30, 30, 30, 0.9));
-    padding: 5px 10px 5px 5px;
-    border: 1px solid rgba(var(--dropdown-color), 0.6);
-    border-radius: 3px;
-    min-height: 24px;
-    box-shadow: 0 0 8px rgba(var(--dropdown-color), 0.15);
+    background: rgba(20, 20, 20, 0.85);
+    padding: 4px 8px 4px 4px;
+    border: 1px solid rgba(var(--dropdown-color), 0.5);
+    border-radius: 2px;
+    min-height: 22px;
+    box-shadow: 0 0 6px rgba(var(--dropdown-color), 0.1);
     transition: all 0.2s ease;
 }
 
 .ticker-item:hover {
-    box-shadow: 0 0 12px rgba(var(--dropdown-color), 0.3);
-    border-color: rgba(var(--dropdown-color), 0.8);
+    box-shadow: 0 0 10px rgba(var(--dropdown-color), 0.25);
+    border-color: rgba(var(--dropdown-color), 0.7);
 }
 
 .led-indicator {
-    width: 10px;
-    height: 10px;
+    width: 6px !important;
+    height: 6px !important;
     border-radius: 50% !important;
-    flex-shrink: 0;
-    animation: pulse-led 1.5s ease-in-out infinite;
+    flex-shrink: 0 !important;
+    animation: pulse-led 1.5s ease-in-out infinite !important;
+    min-width: 6px !important;
+    min-height: 6px !important;
 }
 
 .led-indicator[style*="#00ff00"] {
     background-color: #00ff00 !important;
-    box-shadow: 0 0 10px #00ff00, inset 0 0 8px rgba(0, 255, 0, 0.7) !important;
+    box-shadow: 0 0 8px #00ff00 !important;
 }
 
 .led-indicator[style*="#ff0000"] {
     background-color: #ff0000 !important;
-    box-shadow: 0 0 10px #ff0000, inset 0 0 8px rgba(255, 0, 0, 0.7) !important;
+    box-shadow: 0 0 8px #ff0000 !important;
 }
 
 @keyframes pulse-led {
@@ -252,33 +253,33 @@ a:hover, button:hover, .tab_switcher:hover {
 .ticker-symbol {
     font-weight: bold;
     color: var(--main-color);
-    font-size: 12px !important;
-    min-width: 40px;
-    text-shadow: 0 0 3px var(--main-color);
+    font-size: 11px !important;
+    min-width: 35px;
+    text-shadow: 0 0 2px var(--main-color);
 }
 
 .ticker-price {
     color: var(--main-color);
-    font-size: 12px !important;
+    font-size: 11px !important;
     font-family: 'Courier New', monospace;
-    min-width: 70px;
-    text-shadow: 0 0 3px var(--main-color);
+    min-width: 60px;
+    text-shadow: 0 0 2px var(--main-color);
 }
 
 .ticker-change.positive {
     color: #00ff00;
-    font-size: 12px !important;
+    font-size: 10px !important;
     font-weight: bold;
-    min-width: 60px;
-    text-shadow: 0 0 6px #00ff00;
+    min-width: 50px;
+    text-shadow: 0 0 4px #00ff00;
 }
 
 .ticker-change.negative {
     color: #ff0000;
-    font-size: 12px !important;
+    font-size: 10px !important;
     font-weight: bold;
-    min-width: 60px;
-    text-shadow: 0 0 6px #ff0000;
+    min-width: 50px;
+    text-shadow: 0 0 4px #ff0000;
 }
 
 /* Adjust main content to account for status bar and ticker */

@@ -31,6 +31,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Scroll to top to show ASCII art header
     window.scrollTo(0, 0);
+    
+    // Open Home dropdown by default
+    const homeTab = document.getElementById('home_tab');
+    if (homeTab) {
+        homeTab.classList.add('tab_active');
+    }
+    const homeContent = document.getElementById('home');
+    if (homeContent) {
+        homeContent.classList.add('visible');
+        homeContent.classList.add('fade-in-anim');
+    }
 });
 
 // remove 'rgb' and brackets from --bg-value so the color can be used in combination with individual opacity-values (rgba)
