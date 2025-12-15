@@ -174,7 +174,7 @@ function renderStatuses(statuses) {
 
     if (statuses.length === 0) {
         container.innerHTML = "<p>No status updates yet.</p>";
-        document.title = "Matt Holden";
+        document.title = "Matty Holden";
         return;
     }
 
