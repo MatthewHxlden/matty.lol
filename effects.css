@@ -215,7 +215,7 @@ a:hover, button:hover, .tab_switcher:hover {
     padding: 4px 8px 4px 4px;
     border: 1px solid rgba(var(--dropdown-color), 0.5);
     border-radius: 2px;
-    min-height: 22px;
+    min-height: 24px;
     box-shadow: 0 0 6px rgba(var(--dropdown-color), 0.1);
     transition: all 0.2s ease;
 }
@@ -253,14 +253,14 @@ a:hover, button:hover, .tab_switcher:hover {
 .ticker-symbol {
     font-weight: bold;
     color: var(--main-color);
-    font-size: 11px !important;
+    font-size: 12px !important;
     min-width: 35px;
     text-shadow: 0 0 2px var(--main-color);
 }
 
 .ticker-price {
     color: var(--main-color);
-    font-size: 11px !important;
+    font-size: 12px !important;
     font-family: 'Courier New', monospace;
     min-width: 60px;
     text-shadow: 0 0 2px var(--main-color);
@@ -268,7 +268,7 @@ a:hover, button:hover, .tab_switcher:hover {
 
 .ticker-change.positive {
     color: #00ff00;
-    font-size: 10px !important;
+    font-size: 12px !important;
     font-weight: bold;
     min-width: 50px;
     text-shadow: 0 0 4px #00ff00;
@@ -276,7 +276,7 @@ a:hover, button:hover, .tab_switcher:hover {
 
 .ticker-change.negative {
     color: #ff0000;
-    font-size: 10px !important;
+    font-size: 12px !important;
     font-weight: bold;
     min-width: 50px;
     text-shadow: 0 0 4px #ff0000;
