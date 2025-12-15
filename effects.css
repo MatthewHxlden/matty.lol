@@ -111,7 +111,7 @@ header, #title {
 #title::after {
     content: "█";
     animation: blink 1s infinite;
-    margin-left: 20px;
+    margin-left: 1px;
     color: var(--main-color);
 }
 
