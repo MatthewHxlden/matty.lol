@@ -632,7 +632,7 @@ a{
 }
 
 .fade-in-anim:not(em) {
-    animation: fade-in-anim 0.5s ease-in-out;
+    animation: fade-in-anim 1.0s ease-in-out;
 }
 
 /*--------------------------------------------------------------
