@@ -6,14 +6,14 @@
         <description>Recent content on Matty Holden's Webpage</description>
         <language>en-us</language>
         <lastBuildDate>Wed, 10 Sep 2025 10:47:00 GMT</lastBuildDate>
-        <managingEditor>matt@matty.lol (Matty Holden)</managingEditor>
-        <webMaster>matt@matty.lol (Matty Holden)</webMaster>
+        <managingEditor>matty@matty.lol (Matty Holden)</managingEditor>
+        <webMaster>matty@matty.lol (Matty Holden)</webMaster>
 
         <item>
             <title>How to Install and Set Up AtlasOS on Windows</title>
             <link>https://matty.lol/articles/article8.html</link>
             <description>Example article description. Replace with your own content.</description>
-            <author>matt@matty.lol (Matt Holden)</author>
+            <author>matty@matty.lol (Matt Holden)</author>
             <pubDate>Tue, 11 Nov 2025 06:47:00 GMT</pubDate>
             <guid>https://matty.lol/articles/article8.html</guid>
         </item>
@@ -22,7 +22,7 @@
             <title>How to Self-Host File Browser on Arch Linux with Cloudflared Tunnels</title>
             <link>https://matty.lol/articles/article7.html</link>
             <description>Example article description. Replace with your own content.</description>
-            <author>matt@matty.lol (Matt Holden)</author>
+            <author>matty@matty.lol (Matt Holden)</author>
             <pubDate>Wed, 10 Sep 2025 10:47:00 GMT</pubDate>
             <guid>https://matty.lol/articles/article7.html</guid>
         </item>
@@ -31,25 +31,16 @@
             <title>My Music Setup on PC and Phone</title>
             <link>https://matty.lol/articles/article6.html</link>
             <description>Example article description. Replace with your own content.</description>
-            <author>matt@matty.lol (Matt Holden)</author>
+            <author>matty@matty.lol (Matt Holden)</author>
             <pubDate>Mon, 18 Aug 2025 08:15:00 GMT</pubDate>
             <guid>https://matty.lol/articles/article6.html</guid>
         </item>
-
-        <!---<item>
-            <title>Appreciation Is Rare, and That's the Problem</title>
-            <link>https://fr0st.xyz/articles/article - archive.html</link>
-            <description>This isn't life advice. Just me sharing how it feels when people act like they don't care. Support and appreciation matter more than most people realize.</description>
-            <author>fr0st.xyz@tuta.io (fr0st)</author>
-            <pubDate>Sun, 6 July 2025 12:26:00 GMT</pubDate>
-            <guid>https://fr0st.xyz/articles/article - archive.html</guid>
-        </item> -->
 
         <item>
             <title>WinMacros: Custom Windows Macros</title>
             <link>https://matty.lol/articles/article5.html</link>
             <description>Example article description. Replace with your own content.</description>
-            <author>matt@matty.lol (Matt Holden)</author>
+            <author>matty@matty.lol (Matt Holden)</author>
             <pubDate>Wed, 26 Feb 2025 03:12:00 GMT</pubDate>
             <guid>https://matty.lol/articles/article5.html</guid>
         </item>
@@ -58,7 +49,7 @@
             <title>WinConfigs: Simplifying Windows Setup</title>
             <link>https://matty.lol/articles/article4.html</link>
             <description>Example article description. Replace with your own content.</description>
-            <author>matt@matty.lol (Matt Holden)</author>
+            <author>matty@matty.lol (Matt Holden)</author>
             <pubDate>Wed, 5 Feb 2025 08:30:00 GMT</pubDate>
             <guid>https://matty.lol/articles/article4.html</guid>
         </item>
@@ -67,7 +58,7 @@
             <title>Why Tailwind CSS Isn't for Me</title>
             <link>https://matty.lol/articles/article3.html</link>
             <description>Example article description. Replace with your own content.</description>
-            <author>matt@matty.lol (Matt Holden)</author>
+            <author>matty@matty.lol (Matt Holden)</author>
             <pubDate>Wed, 6 Nov 2024 10:35:00 GMT</pubDate>
             <guid>https://matty.lol/articles/article3.html</guid>
         </item>
@@ -76,7 +67,7 @@
             <title>My first Linux experience</title>
             <link>https://matty.lol/articles/article2.html</link>
             <description>Example article description. Replace with your own content.</description>
-            <author>matt@matty.lol (Matt Holden)</author>
+            <author>matty@matty.lol (Matt Holden)</author>
             <pubDate>Tue, 22 Oct 2024 14:11:00 GMT</pubDate>
             <guid>https://matty.lol/articles/article2.html</guid>
         </item>
@@ -85,7 +76,7 @@
             <title>Hello World, may I say?</title>
             <link>https://matty.lol/articles/article1.html</link>
             <description>Example article description. Replace with your own content.</description>
-            <author>matt@matty.lol (Matt Holden)</author>
+            <author>matty@matty.lol (Matt Holden)</author>
             <pubDate>Sun, 20 Oct 2024 04:05:00 GMT</pubDate>
             <guid>https://matty.lol/articles/article1.html</guid>
         </item>
